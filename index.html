@@ -1,0 +1,396 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Contatti & Orari</title>
+
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <!-- Configurazione Tailwind personalizzata (estensione completa dei colori e stili) -->
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            cream: {
+              50: '#fdfbf7',
+              100: '#f8f3e8',
+              200: '#efe4cd',
+              300: '#e2d0af',
+              400: '#d4bb8e',
+            },
+            ink: {
+              100: '#e6e4e0',
+              200: '#cccccc',
+              300: '#b3b0a8',
+              400: '#999999',
+              500: '#666666',
+              600: '#4a4a4a',
+              700: '#2b2b2b',
+              800: '#1e1e1e',
+              900: '#121212',
+              950: '#0a0a0a',
+            },
+            terracotta: {
+              100: '#f9e8e1',
+              300: '#e09878',
+              400: '#d47854',
+              500: '#c85a32',
+              600: '#b04a25',
+              700: '#963c1b',
+              800: '#782e14',
+            },
+            oxblood: {
+              300: '#a33b3b',
+              400: '#800020',
+              500: '#66001a',
+            },
+            sage: {
+              300: '#98a894',
+              500: '#778873',
+              600: '#5e6f5a',
+              700: '#465443',
+            }
+          },
+          boxShadow: {
+            'glow-terracotta': '0 0 25px -5px rgba(200, 90, 50, 0.25)',
+            'inner-dark': 'inset 0 2px 4px 0 rgba(0, 0, 0, 0.6)',
+          },
+          animation: {
+            'pulse-slow': 'pulse 3s cubic-bezier(0.4, 0, 0.6, 1) infinite',
+          }
+        }
+      }
+    }
+  </script>
+
+  <!-- CSS Custom Personalizzato (Righe di CSS avanzato, variabili e regole di utilità) -->
+  <style type="text/tailwindcss">
+  
+  /* CSS Standard - Nessun avviso da VS Code */
+  body {
+    background-color: #0a0a0a; /* bg-ink-950 */
+    color: #f8f3e8; /* text-cream-100 */
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  ::selection {
+    background-color: #c85a32; /* selection:bg-terracotta-500 */
+    color: #fdfbf7; /* selection:text-cream-50 */
+  }
+
+  /* Pattern di sfondo e texture custom */
+  .bg-grid-pattern {
+    background-size: 32px 32px;
+    background-image: 
+      linear-gradient(to right, rgba(255, 255, 255, 0.03) 1px, transparent 1px),
+      linear-gradient(to bottom, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+  }
+
+  /* Effetto Glassmorphism sui pannelli */
+  .glass-card {
+    background: linear-gradient(135deg, rgba(30, 30, 30, 0.85) 0%, rgba(18, 18, 18, 0.95) 100%);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+  }
+
+  /* Scrollbar personalizzata dark */
+  ::-webkit-scrollbar {
+    width: 8px;
+  }
+  ::-webkit-scrollbar-track {
+    background: #121212;
+  }
+  ::-webkit-scrollbar-thumb {
+    background: #2b2b2b;
+    border-radius: 4px;
+  }
+  ::-webkit-scrollbar-thumb:hover {
+    background: #c85a32;
+  }
+</style>
+  
+
+  <!-- Lucide Icons per le icone SVG -->
+  <script src="https://unpkg.com/lucide@latest"></script>
+</head>
+<body class="bg-ink-950 text-cream-100 min-h-screen relative overflow-x-hidden bg-grid-pattern">
+
+  <!-- Glow di Sfondo Decorativo -->
+  <div class="absolute top-1/4 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-terracotta-500/10 rounded-full blur-[120px] pointer-events-none"></div>
+
+  <main class="py-16 md:py-24 px-4 sm:px-6 max-w-6xl mx-auto relative z-10">
+
+    <!-- Header della Sezione -->
+    <div class="text-center max-w-2xl mx-auto mb-16">
+      <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-terracotta-500/10 border border-terracotta-500/20 text-terracotta-300 text-xs font-medium uppercase tracking-widest mb-4">
+        <i data-lucide="compass" class="w-3.5 h-3.5 text-terracotta-500"></i>
+        <span>Vieni a Trovarci</span>
+      </div>
+      <h2 class="text-3xl sm:text-4xl md:text-5xl font-bold text-cream-50 tracking-tight">
+        Contatti & Orari
+      </h2>
+      <p class="text-ink-300 text-sm md:text-base mt-4 leading-relaxed">
+        Siamo pronti ad accoglierti. Dai un'occhiata ai nostri orari o contattaci direttamente per prenotazioni e informazioni.
+      </p>
+      <div class="flex items-center justify-center gap-2 mt-6">
+        <span class="w-12 h-[1px] bg-gradient-to-r from-transparent to-terracotta-500"></span>
+        <span class="w-2 h-2 rounded-full bg-terracotta-500"></span>
+        <span class="w-12 h-[1px] bg-gradient-to-l from-transparent to-terracotta-500"></span>
+      </div>
+    </div>
+
+    <!-- Layout Principale a Griglia -->
+    <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
+
+      <!-- COLONNA SINISTRA (7 Colonne) -->
+      <div class="lg:col-span-7 space-y-6">
+
+        <!-- Scheda Orari -->
+        <div class="glass-card border border-ink-700/60 rounded-lg p-6 sm:p-8 shadow-2xl relative overflow-hidden group">
+          <div class="absolute top-0 right-0 w-32 h-32 bg-terracotta-500/5 rounded-bl-full transition-all duration-500 group-hover:scale-110 pointer-events-none"></div>
+          
+          <div class="flex items-center justify-between pb-6 mb-6 border-b border-ink-700/50">
+            <div class="flex items-center gap-3">
+              <div class="p-2.5 rounded-md bg-terracotta-500/10 border border-terracotta-500/20 text-terracotta-500">
+                <i data-lucide="clock" class="w-6 h-6"></i>
+              </div>
+              <div>
+                <h3 class="text-xl font-bold text-cream-50">Orari di Apertura</h3>
+                <p class="text-xs text-ink-300 mt-0.5">Aggiornati in tempo reale</p>
+              </div>
+            </div>
+            
+            <!-- Badge Stato Apertura In Tempo Reale -->
+            <div id="status-badge" class="hidden sm:inline-flex items-center gap-2 px-3 py-1 rounded-full text-xs font-semibold border">
+              <!-- Riempito via JS -->
+            </div>
+          </div>
+
+          <!-- Tabella Orari Generata via JS -->
+          <div id="orari-container" class="space-y-2"></div>
+        </div>
+
+        <!-- Scheda Caratteristiche (Fisarmonica / Accordion) -->
+        <div class="glass-card border border-ink-700/60 rounded-lg p-6 sm:p-8 shadow-2xl">
+          <div class="flex items-center gap-3 mb-6 pb-4 border-b border-ink-700/50">
+            <div class="p-2.5 rounded-md bg-terracotta-500/10 border border-terracotta-500/20 text-terracotta-500">
+              <i data-lucide="sparkles" class="w-6 h-6"></i>
+            </div>
+            <div>
+              <h3 class="text-xl font-bold text-cream-50">Cosa Troverai</h3>
+              <p class="text-xs text-ink-300 mt-0.5">I punti di forza del nostro locale</p>
+            </div>
+          </div>
+
+          <!-- Accordion Container -->
+          <div id="caratteristiche-container" class="divide-y divide-ink-700/40"></div>
+        </div>
+
+      </div>
+
+      <!-- COLONNA DESTRA (5 Colonne) -->
+      <div class="lg:col-span-5 space-y-6 flex flex-col">
+
+        <!-- Scheda Dettagli di Contatto Rapidi -->
+        <div class="glass-card border border-ink-700/60 rounded-lg p-6 shadow-2xl space-y-4">
+          
+          <!-- Indirizzo -->
+          <div class="flex items-start gap-4 p-3.5 rounded-md bg-ink-900/50 border border-ink-800/80 hover:border-ink-700 transition-colors">
+            <div class="p-2 rounded-md bg-terracotta-500/10 text-terracotta-500 shrink-0">
+              <i data-lucide="map-pin" class="w-5 h-5"></i>
+            </div>
+            <div class="flex-1">
+              <h4 class="text-xs uppercase tracking-wider font-semibold text-ink-300">Indirizzo</h4>
+              <p class="text-sm text-cream-100 font-medium mt-1">Via Esempio 123, 00100 Roma (RM)</p>
+            </div>
+          </div>
+
+          <!-- Telefono -->
+          <a href="tel:+390612345678" class="flex items-start gap-4 p-3.5 rounded-md bg-ink-900/50 border border-ink-800/80 hover:border-terracotta-500/50 transition-colors group">
+            <div class="p-2 rounded-md bg-terracotta-500/10 text-terracotta-500 shrink-0 group-hover:bg-terracotta-500 group-hover:text-cream-50 transition-colors">
+              <i data-lucide="phone" class="w-5 h-5"></i>
+            </div>
+            <div class="flex-1">
+              <h4 class="text-xs uppercase tracking-wider font-semibold text-ink-300">Telefono & Prenotazioni</h4>
+              <p class="text-sm text-cream-100 font-medium mt-1 group-hover:text-terracotta-300 transition-colors">+39 06 1234 5678</p>
+            </div>
+          </a>
+
+          <!-- Email -->
+          <a href="mailto:info@ristorante.it" class="flex items-start gap-4 p-3.5 rounded-md bg-ink-900/50 border border-ink-800/80 hover:border-terracotta-500/50 transition-colors group">
+            <div class="p-2 rounded-md bg-terracotta-500/10 text-terracotta-500 shrink-0 group-hover:bg-terracotta-500 group-hover:text-cream-50 transition-colors">
+              <i data-lucide="mail" class="w-5 h-5"></i>
+            </div>
+            <div class="flex-1">
+              <h4 class="text-xs uppercase tracking-wider font-semibold text-ink-300">Email</h4>
+              <p class="text-sm text-cream-100 font-medium mt-1 group-hover:text-terracotta-300 transition-colors">info@ristorante.it</p>
+            </div>
+          </a>
+
+        </div>
+
+        <!-- Mappa Interactive Container -->
+        <div class="glass-card border border-ink-700/60 rounded-lg overflow-hidden shadow-2xl relative min-h-[360px] flex-1 flex flex-col">
+          <div class="p-3 bg-ink-900/80 border-b border-ink-700/50 flex items-center justify-between text-xs text-ink-300 px-4">
+            <span class="flex items-center gap-1.5 font-medium">
+              <span class="w-2 h-2 rounded-full bg-sage-500 animate-pulse"></span> Mappa Interattiva
+            </span>
+            <a href="https://www.openstreetmap.org" target="_blank" rel="noopener noreferrer" class="hover:text-cream-50 underline transition-colors">
+              Apri Mappa Completa
+            </a>
+          </div>
+          <iframe
+            title="Mappa Posizione Locale"
+            class="w-full flex-1 min-h-[300px] border-0 grayscale opacity-85 hover:grayscale-0 hover:opacity-100 transition-all duration-500"
+            loading="lazy"
+            allowfullscreen
+            src="https://www.openstreetmap.org/export/embed.html?bbox=12.4800%2C41.8850%2C12.5000%2C41.8980&amp;layer=mapnik"
+          ></iframe>
+        </div>
+
+      </div>
+
+    </div>
+
+  </main>
+
+  <!-- LOGICA JAVASCRIPT VANILLA COMPLETA -->
+  <script>
+    // 1. Dati della Sezione Orari
+    const ORARI = [
+      { giorno: 'Lunedì', orario: 'Chiuso' },
+      { giorno: 'Martedì', orario: '12:00 - 15:00 | 19:00 - 23:00' },
+      { giorno: 'Mercoledì', orario: '12:00 - 15:00 | 19:00 - 23:00' },
+      { giorno: 'Giovedì', orario: '12:00 - 15:00 | 19:00 - 23:00' },
+      { giorno: 'Venerdì', orario: '12:00 - 15:00 | 19:00 - 23:30' },
+      { giorno: 'Sabato', orario: '12:00 - 15:30 | 19:00 - 00:00' },
+      { giorno: 'Domenica', orario: '12:00 - 15:30 | 19:00 - 23:00' }
+    ];
+
+    // 2. Dati delle Caratteristiche
+    const CARATTERISTICHE = [
+      {
+        icon: 'utensils-crossed',
+        title: 'Cucina Tradizionale & Rivisitata',
+        description: 'I nostri chef combinano ricette classiche tramandate nel tempo con tecniche moderne di cottura, selezionando solo materie prime a Km 0.'
+      },
+      {
+        icon: 'wine',
+        title: 'Cantina Curata',
+        description: 'Oltre 150 etichette selezionate tra piccoli produttori locali e grandi cantine italiane per abbinamenti perfetti con ogni portata.'
+      },
+      {
+        icon: 'heart-handshake',
+        title: 'Ospitalità & Comfort',
+        description: 'Un ambiente elegante ma informale, con sale climatizzate, dehor estivo e massima attenzione per ogni singola esigenza del cliente.'
+      }
+    ];
+
+    // Mappatura Giorni (Fix per la gestione dello 0 = Domenica in JS)
+    const DAY_MAP = ['Domenica', 'Lunedì', 'Martedì', 'Mercoledì', 'Giovedì', 'Venerdì', 'Sabato'];
+    const oggiNome = DAY_MAP[new Date().getDay()];
+
+    // Render Tabella Orari
+    const orariContainer = document.getElementById('orari-container');
+    
+    ORARI.forEach(item => {
+      const isToday = item.giorno === oggiNome;
+      const isClosed = item.orario === 'Chiuso';
+
+      const row = document.createElement('div');
+      row.className = `flex items-center justify-between p-3 rounded-md transition-all duration-200 border ${
+        isToday 
+          ? 'bg-terracotta-500/15 border-terracotta-500/40 text-cream-50 shadow-glow-terracotta' 
+          : 'bg-ink-900/30 border-transparent text-ink-200 hover:bg-ink-800/40'
+      }`;
+
+      row.innerHTML = `
+        <div class="flex items-center gap-2.5">
+          <span class="text-sm font-medium ${isToday ? 'text-cream-50 font-semibold' : ''}">${item.giorno}</span>
+          ${isToday ? '<span class="text-[10px] font-bold uppercase tracking-wider bg-terracotta-500 text-cream-50 px-2 py-0.5 rounded-full shadow-sm">Oggi</span>' : ''}
+        </div>
+        <div class="text-sm font-mono ${isClosed ? 'text-oxblood-300 font-semibold' : 'text-cream-100'}">
+          ${item.orario}
+        </div>
+      `;
+
+      orariContainer.appendChild(row);
+    });
+
+    // Render Badge "Aperto/Chiuso" in alto
+    const statusBadge = document.getElementById('status-badge');
+    const orarioOggi = ORARI.find(o => o.giorno === oggiNome);
+
+    if (orarioOggi && orarioOggi.orario !== 'Chiuso') {
+      statusBadge.className += ' bg-sage-500/10 border-sage-500/30 text-sage-300';
+      statusBadge.innerHTML = '<span class="w-2 h-2 rounded-full bg-sage-500 animate-pulse"></span> Oggi Apertura Prevista';
+    } else {
+      statusBadge.className += ' bg-oxblood-500/10 border-oxblood-500/30 text-oxblood-300';
+      statusBadge.innerHTML = '<span class="w-2 h-2 rounded-full bg-oxblood-400"></span> Oggi Chiuso';
+    }
+
+    // Render Accordion Caratteristiche
+    const caratteristicheContainer = document.getElementById('caratteristiche-container');
+
+    CARATTERISTICHE.forEach((item, index) => {
+      const wrapper = document.createElement('div');
+      wrapper.className = 'py-4 first:pt-0 last:pb-0';
+
+      wrapper.innerHTML = `
+        <button 
+          onclick="toggleAccordion(${index})"
+          class="w-full flex items-center justify-between text-left group focus:outline-none"
+        >
+          <div class="flex items-center gap-3">
+            <i data-lucide="${item.icon}" class="w-4 h-4 text-terracotta-500 group-hover:scale-110 transition-transform"></i>
+            <span class="text-sm font-semibold text-cream-50 group-hover:text-terracotta-300 transition-colors">${item.title}</span>
+          </div>
+          <div class="p-1 rounded-full bg-ink-800 border border-ink-700 text-ink-300 group-hover:border-terracotta-500/50 transition-colors">
+            <i data-lucide="chevron-down" id="acc-icon-${index}" class="w-4 h-4 transition-transform duration-300"></i>
+          </div>
+        </button>
+        <div id="acc-content-${index}" class="grid grid-rows-[0fr] transition-all duration-300 ease-in-out opacity-0">
+          <div class="overflow-hidden">
+            <p class="pt-3 pl-7 text-xs sm:text-sm text-ink-300 leading-relaxed">
+              ${item.description}
+            </p>
+          </div>
+        </div>
+      `;
+
+      caratteristicheContainer.appendChild(wrapper);
+    });
+
+    // Gestione Animazione Accordion
+    function toggleAccordion(index) {
+      const content = document.getElementById(`acc-content-${index}`);
+      const icon = document.getElementById(`acc-icon-${index}`);
+
+      const isOpen = content.classList.contains('grid-rows-[1fr]');
+
+      // Chiudi tutti prima (Comportamento Accordion singolo)
+      CARATTERISTICHE.forEach((_, i) => {
+        const c = document.getElementById(`acc-content-${i}`);
+        const ic = document.getElementById(`acc-icon-${i}`);
+        c.classList.remove('grid-rows-[1fr]', 'opacity-100');
+        c.classList.add('grid-rows-[0fr]', 'opacity-0');
+        ic.classList.remove('rotate-180');
+      });
+
+      // Se non era aperto, apri quello selezionato
+      if (!isOpen) {
+        content.classList.remove('grid-rows-[0fr]', 'opacity-0');
+        content.classList.add('grid-rows-[1fr]', 'opacity-100');
+        icon.classList.add('rotate-180');
+      }
+    }
+
+    // Inizializza Icone SVG Lucide
+    lucide.createIcons();
+  </script>
+</body>
+</html>
